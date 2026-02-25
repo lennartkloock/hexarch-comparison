@@ -1,4 +1,4 @@
-# Hexarch vs. Plain Old Functions
+# [Hexarch](https://www.howtocodeit.com/guides/master-hexagonal-architecture-in-rust) vs. Plain Old Functions
 
 This repo compares Hexarch to using plain old functions.
 
