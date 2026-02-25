@@ -66,6 +66,9 @@ impl UserService for DefaultUserService {
             anyhow::bail!("this username is already registered");
         }
 
+        // Problem: We can't use a transcation here
+        // because Hexarch doesn't allow us to know that transactions exist at this point
+
         // Add the user to the repo
         let user = self.user_repo.create_user(username, email_address).await?;
 
