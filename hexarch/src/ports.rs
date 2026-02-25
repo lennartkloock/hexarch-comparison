@@ -23,3 +23,8 @@ pub trait AccountAddressFactory: Send + Sync + 'static {
 pub trait UserNotifier: Send + Sync + 'static {
     async fn user_created(&self, user: &User);
 }
+
+#[cfg(test)]
+mod tests {
+    // ...
+}

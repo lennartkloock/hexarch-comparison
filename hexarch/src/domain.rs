@@ -48,3 +48,8 @@ impl Account {
 
 #[derive(Clone, Debug, PartialEq, Eq)]
 pub struct AccountAddress(pub u128);
+
+#[cfg(test)]
+mod tests {
+    // ...
+}

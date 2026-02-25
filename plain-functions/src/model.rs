@@ -60,3 +60,8 @@ impl AccountAddress {
         Self(rng.random())
     }
 }
+
+#[cfg(test)]
+mod tests {
+    // ...
+}

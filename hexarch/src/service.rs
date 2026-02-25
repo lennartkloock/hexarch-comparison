@@ -82,3 +82,8 @@ impl UserService for DefaultUserService {
         Ok(user)
     }
 }
+
+#[cfg(test)]
+mod tests {
+    // ...
+}

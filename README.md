@@ -20,6 +20,8 @@ The HTTP handler should do the following things:
 
 ## Evalution
 
+Might be opinionated.
+
 ### Boilerplate
 
 The functional approach has a lot less code which speeds up development and maintenance as well as making the code more readable.
@@ -31,15 +33,15 @@ Everyone knows what a function is.
 
 ### Project file structure
 
-The project file structure is equally easy to navigate in both implementations.
-Business logic can be extracted into their own separated modules with both approaches.
+The project file structure is slightly easier to navigate in the functional implementation since we don't use abstract and
+architecture-dependent terms like ports, adapters or services.
+Apart from that Hexarch encourages you to split up related code into unrelated modules.
 
 ### Testability
 
 The code that can't be tested is mostly the same in both architectures.
 
 In the Hexarch implementation we can't test the `Postgres` and `RabbitMq` adapters.
-
 In the functional approach we can't test the `postgres` and `rmq` modules.
 
 The HTTP handler can only be tested in the Hexarch implementation but it doesn't contain any business logic.
@@ -48,4 +50,4 @@ The HTTP handler can only be tested in the Hexarch implementation but it doesn't
 
 ## My conclusion
 
-Plain functions are better.
+Using plain functions is better.

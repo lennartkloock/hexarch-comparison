@@ -18,3 +18,8 @@ impl AccountAddressFactory for RandAccountAddressFactory {
         AccountAddress(rand::rng().random())
     }
 }
+
+#[cfg(test)]
+mod tests {
+    // ...
+}

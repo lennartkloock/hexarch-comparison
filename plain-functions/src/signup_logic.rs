@@ -21,3 +21,8 @@ pub fn check_user(user_by_email: Option<User>, user_by_name: Option<User>) -> an
 pub fn new_account(user_id: uuid::Uuid) -> Account {
     Account::new(AccountAddress::generate_new(rand::rng()), user_id, 10)
 }
+
+#[cfg(test)]
+mod tests {
+    // ...
+}
