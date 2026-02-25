@@ -4,7 +4,7 @@ This repo compares Hexarch to using plain old functions.
 
 ## The example
 
-The example is a banking software that stores multiple users which can have multiple accounts.
+The example is a banking software that stores multiple users who can have multiple accounts.
 
 New users should get a new account with a start balance of 10.
 
@@ -18,7 +18,7 @@ The HTTP handler should do the following things:
 - Generate a new random account address
 - Create the new account with a balance of 10
 
-## Evalution
+## Evaluation
 
 Might be opinionated.
 
