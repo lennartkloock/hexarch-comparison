@@ -1,12 +1,12 @@
 use crate::{
     model::{EmailAddress, UserName},
-    postgres::Postgres,
-    rmq::RabbitMq,
+    db::Postgres,
+    events::RabbitMq,
 };
 
 mod model;
-mod postgres;
-mod rmq;
+mod db;
+mod events;
 mod signup_logic;
 
 #[tokio::main]
@@ -28,29 +28,29 @@ async fn handler(db: &Postgres, rmq: &RabbitMq, username: &str, email_address: &
     let tx = db.start_tx();
 
     // Check if the email address is already registered
-    let user_by_email = postgres::get_user_by_email(tx, &email_address)
+    let user_by_email = db::get_user_by_email(tx, &email_address)
         .await
         .expect("error handling");
-    let user_by_name = postgres::get_user_by_username(tx, &username)
+    let user_by_name = db::get_user_by_username(tx, &username)
         .await
         .expect("error handling");
 
     signup_logic::check_user(user_by_email, user_by_name).expect("error handling");
 
     // Insert the user
-    let user = postgres::insert_user(tx, username, email_address)
+    let user = db::insert_user(tx, username, email_address)
         .await
         .expect("error handling");
 
     // Create a new account
     let account = signup_logic::new_account(user.id);
     // Insert the account
-    postgres::insert_account(tx, account)
+    db::insert_account(tx, account)
         .await
         .expect("error handling");
 
     tx.commit().expect("error handling");
 
     // Notify that the user was created
-    rmq::notify_user_created(rmq, &user).await;
+    events::notify_user_created(rmq, &user).await;
 }
