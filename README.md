@@ -1,6 +1,6 @@
-# [Hexarch](https://www.howtocodeit.com/guides/master-hexagonal-architecture-in-rust) vs. Plain Old Functions
+# [Hexarch](https://www.howtocodeit.com/guides/master-hexagonal-architecture-in-rust) vs. Procedural
 
-This repo compares Hexarch to using plain old functions.
+This repo compares Hexarch to using a procedural approach.
 
 ## The example
 
@@ -24,25 +24,25 @@ Might be opinionated.
 
 ### Boilerplate
 
-The functional approach has a lot less code which speeds up development and maintenance as well as making the code more readable.
+The procedural approach has a lot less code which speeds up development and maintenance as well as making the code more readable.
 
 ### Onboarding
 
-Onboarding is much easier with the functional approach since new developers don't have to learn a new architecture.
+Onboarding is much easier with the procedural approach since new developers don't have to learn a new architecture.
 Everyone knows what a function is.
 
 ### Project file structure
 
-The project file structure is slightly easier to navigate in the functional implementation since we don't use abstract and
-architecture-dependent terms like ports, adapters or services.
-Apart from that Hexarch encourages you to split up related code into unrelated modules.
+The project file structure is slightly easier to navigate in the procedural implementation since we don't use abstract and
+architecture-dependent terms like ports, adapters and services.
+Apart from that, Hexarch encourages you to split up related code into unrelated modules.
 
 ### Testability
 
 The code that can't be tested is mostly the same in both architectures.
 
 In the Hexarch implementation we can't test the `Postgres` and `RabbitMq` adapters.
-In the functional approach we can't test the `postgres` and `rmq` modules.
+In the procedural approach we can't test the `postgres` and `rmq` modules.
 
 The HTTP handler can only be tested in the Hexarch implementation but it doesn't contain any business logic.
 
@@ -50,4 +50,4 @@ The HTTP handler can only be tested in the Hexarch implementation but it doesn't
 
 ## My conclusion
 
-Using plain functions is better.
+The procedural approach is better.
