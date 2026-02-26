@@ -42,7 +42,7 @@ Apart from that, Hexarch encourages you to split up related code into unrelated 
 The code that can't be tested is mostly the same in both architectures.
 
 In the Hexarch implementation we can't test the `Postgres` and `RabbitMq` adapters.
-In the procedural approach we can't test the `postgres` and `rmq` modules.
+In the procedural approach we can't test the `db` and `events` modules.
 
 The HTTP handler can only be tested in the Hexarch implementation but it doesn't contain any business logic.
 
